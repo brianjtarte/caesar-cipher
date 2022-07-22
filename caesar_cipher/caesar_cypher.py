@@ -39,6 +39,7 @@ def encrypt(phrase=None, shift=None):
     for unchanged_letter in phrase:
         encrypted_letter = alphabet.clock_wise(unchanged_letter, shift)
         secret_message += encrypted_letter
+
     return secret_message
 
 
@@ -63,4 +64,6 @@ def crack():
 
 
 if __name__ == "__main__":
-    pass
+    list1 = 'hello world'
+    print(encrypt(list1, 4))
+
