@@ -42,8 +42,20 @@ def encrypt(phrase=None, shift=None):
     return secret_message
 
 
-def decrypt():
-    pass
+def decrypt(phrase=None, shift=None):
+    alphabet = Clock_queue()
+    decrypt_msg = ''
+    if phrase.islower():
+        whole_alphabets = list(string.ascii_lowercase)
+    else:
+        whole_alphabets = list(string.ascii_uppercase)
+    for letter in whole_alphabets:
+        alphabet.enqueue(letter, 'r')
+
+    for letter in phrase:
+        d = alphabet.counter_clock_wise(letter, shift)
+        decrypt_msg += d
+    return decrypt_msg
 
 
 def crack():
@@ -51,5 +63,4 @@ def crack():
 
 
 if __name__ == "__main__":
-    phrase = 'HELLO'
-    print(encrypt(phrase, 10))
+    pass
