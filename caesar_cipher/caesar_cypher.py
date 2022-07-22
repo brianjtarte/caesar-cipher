@@ -29,11 +29,17 @@ def encrypt(phrase=None, shift=None):
     alphabet = Clock_queue()
     secret_message = ''
     # the encryption clock
-    if phrase.islower():
-        whole_alphabets = list(string.ascii_lowercase)
-    else:
-        whole_alphabets = list(string.ascii_uppercase)
-    for letter in whole_alphabets:
+
+    lower_alphabets = list(string.ascii_lowercase)
+    upper_alphabets = list(string.ascii_uppercase)
+    alphalist = ['1', '.', ',', '!']
+    for lower in lower_alphabets:
+        upper_alphabets.append(lower)
+        print(upper_alphabets)
+    for symbol in alphalist:
+        upper_alphabets.append(symbol)
+
+    for letter in upper_alphabets:
         alphabet.enqueue(letter, 'r')
 
     for unchanged_letter in phrase:
@@ -64,6 +70,5 @@ def crack():
 
 
 if __name__ == "__main__":
-    list1 = 'hello world'
+    list1 = 'Hello woRld !'
     print(encrypt(list1, 4))
-
